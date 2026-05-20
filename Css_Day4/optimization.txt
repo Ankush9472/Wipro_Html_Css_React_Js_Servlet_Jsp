@@ -1,0 +1,64 @@
+
+//Terminate the process
+Method 	Scope	Used with setTimeout?
+clearTimeout()	Stops the timer	Yes, used to cancel the scheduled task.
+return	Exits the current function	Yes, used inside the callback function.
+break	Exits a loop/switch	Yes, if you have a loop inside the callback.
+throw new Error()	Crashes/stops current flow	Yes, but requires a try/catch to be safe.
+process.exit()	Kills the whole app (Node.js)	Yes, if you want the script to end entirely.
+
+
+
+
+fetch() ==  for api call (Async)
+Promise  -- Handles asynchronous results 
+.then()  ---  when we get the response ( success)
+.catch() --- Error handler
+
+document.write or innerHTML  --- to display on browser /  used for dynamic updates instead of refreshing the whole page 
+
+
+Lazy loading  : 
+
+eager loading <img src =""> image loaded immediately
+
+Lazy loading <img data-src=""> image will be visible when user will scroll 
+
+good example is gallery .
+
+
+
+Optimization
+
+Improving the performance by reducing unnecessary work 
+
+
+deferred objects:
+
+ when we are performing multiple async operation
+
+ jQUery (uses this to handle async operations )(very much similar to Promise)
+
+function async()
+{
+let deferred = $.Deferred();
+
+setTimeout(()=>
+let success = true;
+   if(success)
+   {
+
+	deferred .resolve("Task completed")
+
+   }
+   else{
+	deferred.reject("Task failed")
+   }
+   , 5000)
+   };
+
+   Optimization
+   Indexing
+   lazy loading
+ 
+

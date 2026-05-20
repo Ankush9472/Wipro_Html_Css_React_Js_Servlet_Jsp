@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random User Generator</title>
+
+    <style>
+        /* basic styling - keeping it simple */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .user-card {
+            background-color: white;
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .user-card img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+        }
+
+        .user-card p {
+            margin: 8px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Random User Generator</h1>
+    <p>Click the button to load a random user</p>
+
+    <button id="loadBtn">Get Random User</button>
+
+    <!-- this div will hold the user info -->
+    <div id="userInfo"></div>
+
+
+    <script>
+        // get button and div
+        const btn = document.getElementById("loadBtn");
+        const userInfoDiv = document.getElementById("userInfo");
+
+        // add click event listener
+        btn.addEventListener("click", function () {
+
+            // show loading message while fetching
+            userInfoDiv.innerHTML = "<p>Loading...</p>";
+
+            fetch("https://randomuser.me/api/")
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return res.json();
+                })
+                .then((data) => {
+                    console.log(data);  // for debugging - check what data looks like
+
+                    // the user info is inside data.results[0]
+                    const user = data.results[0];
+
+                    // build the full name
+                    const fullName = user.name.title + " " + user.name.first + " " + user.name.last;
+                    const email = user.email;
+                    const picture = user.picture.large;
+
+                    // put it all in the div
+                    userInfoDiv.innerHTML = `
+                        <div class="user-card">
+                            <img src="${picture}" alt="profile picture">
+                            <p><strong>Name:</strong> ${fullName}</p>
+                            <p><strong>Email:</strong> ${email}</p>
+                        </div>
+                    `;
+                })
+                .catch((err) => {
+                    userInfoDiv.innerHTML = "<p style='color:red;'>Failed to load user. Try again!</p>";
+                    console.log("Error: ", err);
+                });
+        });
+    </script>
+
+</body>
+</html>
