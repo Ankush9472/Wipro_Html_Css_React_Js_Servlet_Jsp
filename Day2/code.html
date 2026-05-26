@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f0f0f0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            width: 200px;
+            margin: auto;
+            padding: 15px;
+            background: white;
+            border: 1px solid #ccc;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid blue;
+        }
+
+        th {
+            background: blue;
+            color: white;
+        }
+
+        td,
+        th {
+            padding: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Employee Management</h2>
+
+    <div class="box">
+        <h3>Add Employee</h3>
+
+
+        <input type="hidden" id="empId">
+
+        <input type="text" id="name" placeholder="Enter Your name">
+        <input type="text" id="email" placeholder="Enter your email">
+        <input type="text" id="company" placeholder="Enter your Company">
+
+        <button onclick="addEmployee()">Add</button>
+    </div>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Company</th>
+        </tr>
+        <tbody id="data"></tbody>
+    </table>
+
+
+    <script src="code.js"></script>
+
+</body>
+
+</html>
