@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard</title>
+    <style>
+        body { font-family: Arial; margin: 0; background: #f4f4f4; }
+        .nav { background: #16a085; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .container { padding: 30px; }
+        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #34495e; color: white; }
+        .logout { background: #e74c3c; padding: 8px 15px; border-radius: 4px; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <strong>LMS - User Portal</strong>
+    <form th:action="@{/logout}" method="post" style="margin:0">
+        <button class="logout" type="submit">Logout</button>
+    </form>
+</div>
+<div class="container">
+    <h1>Welcome to the User Dashboard</h1>
+
+    <div class="card">
+        <h2>Available Courses</h2>
+        <table>
+            <thead>
+            <tr><th>Code</th><th>Title</th><th>Credits</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="c : ${courses}">
+                <td th:text="${c.code}"></td>
+                <td th:text="${c.title}"></td>
+                <td th:text="${c.credits}"></td>
+                <td th:text="${c.description}"></td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(courses)}">
+                <td colspan="4" style="text-align:center">No courses available</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Registered Students</h2>
+        <table>
+            <thead>
+            <tr><th>Name</th><th>Roll No.</th><th>Email</th><th>Enrolled Courses</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="s : ${students}">
+                <td th:text="${s.name}"></td>
+                <td th:text="${s.rollNumber}"></td>
+                <td th:text="${s.email}"></td>
+                <td th:text="${s.courses.size()}"></td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(students)}">
+                <td colspan="4" style="text-align:center">No students yet</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

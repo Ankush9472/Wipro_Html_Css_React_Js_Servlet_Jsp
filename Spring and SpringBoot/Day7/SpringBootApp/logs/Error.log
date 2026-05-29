@@ -1,0 +1,7 @@
+2026-05-15 16:22:30 [main] INFO  c.company.SpringBootAopApplication - Starting SpringBootAopApplication using Java 22.0.2 with PID 7300 (E:\SpringBootApp\target\classes started by hp in E:\SpringBootApp)
+2026-05-15 16:22:30 [main] INFO  c.company.SpringBootAopApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-15 16:22:31 [main] INFO  c.company.SpringBootAopApplication - Started SpringBootAopApplication in 2.114 seconds (process running for 3.415)
+2026-05-15 16:22:31 [main] INFO  com.company.aop.LoggingAop - Transaction support Started
+2026-05-15 16:22:31 [main] INFO  com.company.aop.LoggingAop - Transaction committed
+2026-05-15 16:22:31 [main] INFO  com.company.aop.LoggingAop - Transaction support Started
+2026-05-15 16:22:31 [main] INFO  com.company.aop.LoggingAop - Transaction committed

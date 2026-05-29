@@ -1,0 +1,38 @@
+Spring is a framework : ( set of library / dependencies / binary / common structure)
+Spring Fundamentals :
+
+1)Spring is a comprehensive enterprise application framework for java
+2)It provides a container for managing objects through DI 
+(Dependency Injection ) and AOP (Aspect-Oriented Programming)
+3) It simplifies application development for the developers with various modules 
+such as Spring Boot, Spring MVC , Spring Data , Spring Security
+
+Modules 			Purpose
+Spring Core			Dependency Injection(Ioc Containers)
+Spring MVC			Web Applications & Rest APIs( http://localhost:8080/swiggy)
+Spring Boot			Auto-configured framework for rapid development
+Spring AOP 			Aspect Oriented Programming(Logging , security)
+Spring Security 	Authentication & Authorization
+Spring Data			simplifies database access (JDBC , JPA , Hibernate)
+Spring Cloud  		Microservices & Distributed Systems
+
+
+
+Install prerequisite
+-- JDK 17 or higher version
+-- Maven (for adding dependencies (just like in core java(we were adding jar files and setting in a class path))
+   -- Maven is a build tool ( build your maven project after taking few / required configuration)
+   -- Gradle 
+-- IDE  (Intellij Idea / Eclipse / VS  Code)
+
+-- Postman / Swagger -- To test the APIs or Endpoints
+
+To create a spring Project -- 
+-- create a maven project / gradle -- Which is a building tool
+-- After creating a spring project using a maven build tool , 
+-- Then we have to add all the required 
+dependencies in your pom.xml (A main configuration file of your project) from which spring container will take
+all the dependencies and set in your class path ( Build Path)
+ 
+Q from where we will add all the dependencies
+Ans: Mavenrepository.com  is the url and  we also call it as central repository

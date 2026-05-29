@@ -1,0 +1,36 @@
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee" version="6.0">
+
+    <!-- Login Servlet -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.ecomm.servlet.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <!-- Product Servlet Config -->
+    <servlet>
+        <servlet-name>ProductDashboard</servlet-name>
+        <servlet-class>com.ecomm.servlet.ProductDashboard</servlet-class>
+
+        <init-param>
+            <param-name>Products</param-name>
+            <param-value>50</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ProductDashboard</servlet-name>
+        <url-pattern>/product</url-pattern>
+    </servlet-mapping>
+
+    <!-- Context Param -->
+    <context-param>
+        <param-name>company_name</param-name>
+        <param-value>QuickCart Pvt Ltd</param-value>
+    </context-param>
+
+</web-app>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <style>
+        body { font-family: Arial; margin: 0; background: #f4f4f4; }
+        .nav { background: #2c3e50; color: white; padding: 15px 30px; }
+        .nav a { color: white; text-decoration: none; margin-right: 20px; }
+        .container { padding: 30px; }
+        table { width: 100%; background: white; border-collapse: collapse; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #34495e; color: white; }
+        .btn { padding: 6px 12px; text-decoration: none; border-radius: 3px; color: white; font-size: 14px; margin-right: 5px; }
+        .btn-add { background: #27ae60; padding: 10px 20px; }
+        .btn-assign { background: #3498db; }
+        .btn-del { background: #e74c3c; }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <strong>LMS Admin</strong> &nbsp;|&nbsp;
+    <a th:href="@{/admin/dashboard}">Dashboard</a>
+    <a th:href="@{/admin/students}">Students</a>
+    <a th:href="@{/admin/courses}">Courses</a>
+</div>
+<div class="container">
+    <h1>Students</h1>
+    <a class="btn btn-add" th:href="@{/admin/students/add}">+ Add Student</a>
+    <br/><br/>
+    <table>
+        <thead>
+        <tr><th>ID</th><th>Name</th><th>Email</th><th>Roll No.</th><th>Courses</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+        <tr th:each="s : ${students}">
+            <td th:text="${s.id}"></td>
+            <td th:text="${s.name}"></td>
+            <td th:text="${s.email}"></td>
+            <td th:text="${s.rollNumber}"></td>
+            <td th:text="${s.courses.size()}"></td>
+            <td>
+                <a class="btn btn-assign" th:href="@{'/admin/assign/' + ${s.id}}">Assign</a>
+                <a class="btn btn-del" th:href="@{'/admin/students/delete/' + ${s.id}}"
+                   onclick="return confirm('Delete this student?')">Delete</a>
+            </td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(students)}">
+            <td colspan="6" style="text-align:center">No students yet</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

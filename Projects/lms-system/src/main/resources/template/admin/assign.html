@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Courses</title>
+    <style>
+        body { font-family: Arial; margin: 0; background: #f4f4f4; }
+        .nav { background: #2c3e50; color: white; padding: 15px 30px; }
+        .nav a { color: white; text-decoration: none; margin-right: 20px; }
+        .container { padding: 30px; }
+        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        select, button { padding: 10px; border-radius: 4px; border: 1px solid #ccc; }
+        button { background: #27ae60; color: white; border: none; cursor: pointer; margin-left: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #34495e; color: white; }
+        .btn-del { background: #e74c3c; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px; font-size: 13px; }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <strong>LMS Admin</strong> &nbsp;|&nbsp;
+    <a th:href="@{/admin/dashboard}">Dashboard</a>
+    <a th:href="@{/admin/students}">Students</a>
+    <a th:href="@{/admin/courses}">Courses</a>
+</div>
+<div class="container">
+    <h1>Assign Courses</h1>
+    <div class="card">
+        <h3>Student: <span th:text="${student.name}"></span> (<span th:text="${student.rollNumber}"></span>)</h3>
+        <form th:action="@{/admin/assign}" method="post">
+            <input type="hidden" name="studentId" th:value="${student.id}"/>
+            <label>Select Course:</label>
+            <select name="courseId" required>
+                <option value="">-- Choose --</option>
+                <option th:each="c : ${courses}" th:value="${c.id}" th:text="${c.code + ' - ' + c.title}"></option>
+            </select>
+            <button type="submit">Assign</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h3>Enrolled Courses</h3>
+        <table>
+            <thead>
+            <tr><th>Code</th><th>Title</th><th>Credits</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="c : ${student.courses}">
+                <td th:text="${c.code}"></td>
+                <td th:text="${c.title}"></td>
+                <td th:text="${c.credits}"></td>
+                <td>
+                    <a class="btn-del" th:href="@{'/admin/assign/' + ${student.id} + '/remove/' + ${c.id}}"
+                       onclick="return confirm('Remove this course?')">Remove</a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(student.courses)}">
+                <td colspan="4" style="text-align:center">No courses assigned</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
