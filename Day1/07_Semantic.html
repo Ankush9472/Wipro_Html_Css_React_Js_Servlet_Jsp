@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Semantic HTML Demo</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f4f4;
+        }
+
+        header,
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        article {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        aside {
+            background: #ecf0f1;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        figure {
+            text-align: center;
+        }
+
+        figcaption {
+            font-size: 14px;
+            color: gray;
+        }
+
+        mark {
+            background: yellow;
+        }
+
+        time {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>Semantic HTML Demo</h1>
+        <p>Understanding HTML5 Semantic Tags</p>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#articles">Articles</a>
+        <a href="#media">Media</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- SECTION -->
+        <section id="about">
+            <h2>About Section</h2>
+            <p>This section explains <mark>semantic HTML</mark> usage.</p>
+            <p>Published on: <time datetime="2026-04-30">April 30, 2026</time></p>
+        </section>
+
+        <!-- SECTION WITH ARTICLES -->
+        <section id="articles">
+            <h2>Articles Section</h2>
+
+            <!-- ARTICLE -->
+            <article>
+                <h3>Article 1</h3>
+                <p>This is an independent content block.</p>
+            </article>
+
+            <article>
+                <h3>Article 2</h3>
+                <p>Articles are reusable and self-contained.</p>
+            </article>
+
+            <!-- ASIDE -->
+            <aside>
+                <h4>Related Info</h4>
+                <p>This is side content using the aside tag.</p>
+            </aside>
+
+        </section>
+
+        <!-- MEDIA SECTION -->
+        <section id="media">
+            <h2>Media Section</h2>
+
+            <!-- FIGURE -->
+            <figure>
+                <img src="https://via.placeholder.com/200" alt="Sample Image">
+                <figcaption>Example of figure & figcaption</figcaption>
+            </figure>
+
+            <br>
+
+            <!-- AUDIO -->
+            <audio controls>
+                <source src="song.mp3" type="audio/mpeg">
+            </audio>
+
+            <br><br>
+
+            <!-- VIDEO -->
+            <video width="300" controls>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <h2>Contact Section</h2>
+
+            <form>
+                Name: <input type="text" required><br><br>
+                Email: <input type="email" required><br><br>
+                Message:<br>
+                <textarea rows="4" cols="30"></textarea><br><br>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Semantic HTML Demo</p>
+    </footer>
+
+</body>
+
+</html>

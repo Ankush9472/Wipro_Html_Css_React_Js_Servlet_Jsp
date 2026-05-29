@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Demo</title>
+</head>
+
+<body>
+    <h1>A JavaScript Program</h1>
+
+
+    <script src="index.js"></script> <!-- External JavaScript file  it is connected with some external JS file -->
+
+
+    <script>                                                          // Internal JavaScript -> not connected with any file we are declearing everything here
+        // var keyword (global scope)
+        var name = "Ankush";
+        var age = 23;
+
+        function counter1() {
+            let counter = 10; // block scope
+        }
+
+        let counter = 24;
+
+        name = "Ankush Singh";
+
+        console.log(name);
+        console.log(counter);
+    </script>
+
+</body>
+
+</html>

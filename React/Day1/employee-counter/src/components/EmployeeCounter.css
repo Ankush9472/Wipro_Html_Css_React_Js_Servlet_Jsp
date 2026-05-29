@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: black;
+}
+
+.main-container {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter-card {
+  background-color: #ffbf00;
+  width: 300px;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.counter-card h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.counter-card h2 {
+  font-size: 60px;
+  margin: 20px 0;
+  font-weight: normal;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.button-group button {
+  background-color: red;
+  color: black;
+  border: none;
+  width: 170px;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button-group button:hover {
+  opacity: 0.9;
+}
